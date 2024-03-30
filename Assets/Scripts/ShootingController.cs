@@ -6,21 +6,24 @@ using UnityEngine;
 public class ShootingController : MonoBehaviour
 {
     public Transform Ball;
+    public Transform BallClone;
     public Transform Target;
     public Transform PosStart;
+    public bool BallExists = false;
 
     private bool BallInHands = true;
     private bool IsBallFlying = false;
-    private bool BallExists = false;
     private float T = 0;
+    private float t01;
 
     // Update is called once per frame
     void Update()
     {
         // Ensures that the ball only exists as a single existence at any time.
-        if (Input.GetKey(KeyCode.Space) && BallExists == false)
+        if (Input.GetKeyDown(KeyCode.Space) && BallExists == false)
         {
-            Instantiate(Ball, PosStart.position, Quaternion.identity);
+            var o = Instantiate(Ball, PosStart.position, Quaternion.identity);
+            BallClone = o.transform;
             BallInHands = true;
             BallExists = true;
 
@@ -39,20 +42,35 @@ public class ShootingController : MonoBehaviour
         if (IsBallFlying)
         {
             T += Time.deltaTime;
-            float duration = 0.5f;
-            float t01 = T / duration;
+            float duration = 1.5f;
+            t01 = T / duration;
 
+            // How the ball moves from Spawn point to Target point.
             Vector3 A = PosStart.position;
             Vector3 B = Target.position;
             Vector3 pos = Vector3.Lerp(A, B, t01);
 
-            Ball.position = pos;
+            // How the ball moves in an arc simulating gravity.
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
+
+            BallClone.position = pos + arc;
         }
 
         // Moment when the ball arrives at the hoop.
         //if (t01 >= 1)
         {
            // IsBallFlying = false;
+           // BallClone.GetComponent<Rigidbody>().isKinematic = false;
         }
+    }
+
+    // Destroys the ball, resets everything
+    public void BallDestroyed()
+    {
+        BallExists = false;
+        BallClone = null;
+        IsBallFlying = false;
+        T = 0;
+        t01 = 0;
     }
 }
