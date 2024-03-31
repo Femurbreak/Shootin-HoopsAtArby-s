@@ -50,7 +50,7 @@ public class ShootingController : MonoBehaviour
             Vector3 B = Target.position;
             Vector3 pos = Vector3.Lerp(A, B, t01);
 
-            // How the ball moves in an arc simulating gravity.
+            // How the ball moves in an arc.
             Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
 
             BallClone.position = pos + arc;
@@ -64,10 +64,11 @@ public class ShootingController : MonoBehaviour
         }
     }
 
-    // Destroys the ball, resets everything
+    // Destroys the ball, resets everything so ball can spawn again.
     public void BallDestroyed()
     {
         BallExists = false;
+        Ball = null;
         BallClone = null;
         IsBallFlying = false;
         T = 0;
