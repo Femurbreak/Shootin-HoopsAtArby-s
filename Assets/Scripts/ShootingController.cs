@@ -68,7 +68,6 @@ public class ShootingController : MonoBehaviour
     public void BallDestroyed()
     {
         BallExists = false;
-        Ball = null;
         BallClone = null;
         IsBallFlying = false;
         T = 0;

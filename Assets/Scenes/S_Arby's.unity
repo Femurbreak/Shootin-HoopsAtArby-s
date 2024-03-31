@@ -326,8 +326,6 @@ GameObject:
   m_Component:
   - component: {fileID: 592058340}
   - component: {fileID: 592058339}
-  - component: {fileID: 592058337}
-  - component: {fileID: 592058336}
   - component: {fileID: 592058341}
   - component: {fileID: 592058342}
   m_Layer: 0
@@ -337,32 +335,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &592058336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592058335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe6beca09f37cb4ba50614343aac8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
---- !u!114 &592058337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592058335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe6beca09f37cb4ba50614343aac8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!23 &592058339
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -453,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe6beca09f37cb4ba50614343aac8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 935787557}
 --- !u!1 &753979455
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +557,10 @@ PrefabInstance:
     - target: {fileID: 3754508873196043589, guid: 071ac165692c677409f6d2586301e629, type: 3}
       propertyPath: m_Name
       value: Hoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730663168916927063, guid: 071ac165692c677409f6d2586301e629, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -822,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb03dfa19116c54e92eba31087dae88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 935787557}
 --- !u!1 &1964557299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3754508873196043589, guid: 071ac165692c677409f6d2586301e629, type: 3}
